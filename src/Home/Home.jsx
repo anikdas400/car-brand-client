@@ -1,10 +1,11 @@
+import Banner from "./Banner";
 import Footer from "./Footer";
 
 
 const Home = () => {
     return (
         <div>
-            <h2>this is home section</h2>
+            <Banner></Banner>
             <Footer></Footer>
         </div>
     );
