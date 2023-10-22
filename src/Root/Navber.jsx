@@ -4,24 +4,24 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Navber = () => {
-    const {user,logOut} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
-    const handleLogOut =()=>{
+    const handleLogOut = () => {
         logOut()
-        .then(()=>console.log('logOut successfully'))
-        .catch(error=>{
-            console.error(error);
-        })
+            .then(() => console.log('logOut successfully'))
+            .catch(error => {
+                console.error(error);
+            })
     }
-    const navlinks =<>
+    const navlinks = <>
 
-    <li><NavLink className='text-base hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-emerald-400' to='/'>Home</NavLink></li>
-    <li><NavLink className='text-base hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-emerald-400' to='/addproduct'>Add Product</NavLink></li>
-    {
-        user && <li><NavLink className='text-base hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-emerald-400' to='/mycart'>My Cart</NavLink></li>
-    }
-    <li><NavLink className='text-base hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-emerald-400' to='/register'>Register</NavLink></li>
-    
+        <li><NavLink className='text-base hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-emerald-400' to='/'>Home</NavLink></li>
+        <li><NavLink className='text-base hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-emerald-400' to='/addproduct'>Add Product</NavLink></li>
+        {
+            user && <li><NavLink className='text-base hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-emerald-400' to='/mycart'>My Cart</NavLink></li>
+        }
+        <li><NavLink className='text-base hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-emerald-400' to='/register'>Register</NavLink></li>
+
 
     </>
     return (
@@ -46,16 +46,15 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                
+
                 {
-                    user? <>
-                    <img className="w-14 h-14 rounded-full mr-2" src={user?.photoURL} alt="" />
-                    <span className="mr-2">{user.displayName}</span>
-                    <button onClick={handleLogOut} className="btn btn-success"><NavLink to='/'>LogOut</NavLink></button>
-                    </> :<button className="btn btn-success"><NavLink to='/login'>Login</NavLink></button>
+                    user ? <>
+                        <img className="w-14 h-14 rounded-full mr-2" src={user?.photoURL} alt="" />
+                        <span className="mr-2">{user.displayName}</span>
+                        <button onClick={handleLogOut} className="btn btn-success"><NavLink to='/'>LogOut</NavLink></button>
+                    </> : <button className="btn btn-success"><NavLink to='/login'>Login</NavLink></button>
                 }
-            
-            {/*  "https://i.ibb.co/GRRDYnk/20230515-140229-3.jpg"*/}
+                
             </div>
         </div>
     );
